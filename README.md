@@ -1,6 +1,6 @@
 # React & Next.js Projects
 
-A collection of small React (and eventually Next.js) practice projects, each exploring different UI patterns and state management approaches.
+A collection of small React and Next.js practice projects, each exploring different UI patterns and state management approaches.
 
 ## Projects
 
