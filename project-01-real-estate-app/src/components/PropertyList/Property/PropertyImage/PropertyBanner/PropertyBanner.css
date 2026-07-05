@@ -1,0 +1,12 @@
+.banner {
+    background-color: #DC3545;
+    color: white;
+    padding: 0.3125rem 0.625rem;
+    position: absolute;
+    font-weight: bold;
+    font-size: 0.875rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+    transform: rotate(-45deg);
+    top: 1rem;
+    left: -1.125rem;
+}

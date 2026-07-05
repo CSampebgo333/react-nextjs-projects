@@ -1,0 +1,47 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex; /*To display the header content horizontally */
+    background-color: #262637;
+    color: white;
+    justify-content: space-between;
+    padding: 0.625rem 1.25rem;
+    align-items: center;
+
+}
+
+.item .icon {
+    color: #2CDEB6;
+    margin-right: 8px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.item span {
+    font-weight: bold;
+}
+
+.brand {
+    font-size: 1.5rem;
+}
+
+.contact {
+    font-size: 1rem;
+}
+
+@media (max-width: 800px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .item {
+        margin-bottom: 0.5rem;
+    }
+}

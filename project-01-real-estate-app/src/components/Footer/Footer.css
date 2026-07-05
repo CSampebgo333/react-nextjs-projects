@@ -1,0 +1,42 @@
+.footer {
+    background-color: #262637;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.625rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .icon {
+    color: #2CDEB6;
+    margin-right: 0.5rem;
+}
+
+.footer .status.open {
+    color: #2CDEB6;
+}
+
+.footer .contact {
+    margin-top: 0.5rem;
+}
+
+.footer .open-days {
+    margin-top: 0.5rem;
+}
+
+.footer .status.closed {
+    color: #DC3545;
+}
+
+.footer .status {
+    font-weight: bold;
+}
