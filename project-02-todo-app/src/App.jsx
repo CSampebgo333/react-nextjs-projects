@@ -6,6 +6,7 @@ import TaskOrganizer from "./components/TaskOrganizer";
 import TaskList from "./components/TaskList";
 import { getStoredTasks, updateLocalStorage } from "./utils/localStorageUtils";
 import { taskReducer } from "./reducers/taskReducer";
+import { TaskContext } from "./contexts/TaskContext";
 
 const App = () => {
 
@@ -34,19 +35,15 @@ const App = () => {
     }
 
     return (
-        <div className="app">
+        <TaskContext.Provider value={{deleteTask, toggleTaskDone, updateTask}} className="app">
             <h2>To-Do List</h2>
             <TaskForm addTask={addTask}/>
             <TaskOrganizer 
             showOnlyIncompleteTasks = {showOnlyIncompleteTasks} 
             setShowOnlyIncompleteTasks = {setShowOnlyIncompleteTasks} 
             sortTasks = {sortTasks}/>
-            <TaskList tasks = {tasks} 
-            showOnlyIncompleteTasks = {showOnlyIncompleteTasks} 
-            toggleTaskDone = {toggleTaskDone} 
-            deleteTask={deleteTask}
-            updateTask={updateTask}/>
-        </div>
+            <TaskList tasks = {tasks} showOnlyIncompleteTasks = {showOnlyIncompleteTasks} />
+        </TaskContext.Provider>
     )
 }
 

@@ -1,6 +1,9 @@
 import { Trash, Pencil } from "lucide-react";
+import { useTaskActions } from "../contexts/TaskContext";
 
-const TaskItem = ({ task, toggleTaskDone, deleteTask, setEditingTaskID }) => {
+const TaskItem = ({ task, setEditingTaskID }) => {
+
+    const { deleteTask, toggleTaskDone } = useTaskActions();
 
     return (
         <>

@@ -2,7 +2,7 @@ import TaskItem from "./TaskItem";
 import TaskEditForm from "./TaskEditForm";
 import { useState } from "react";
 
-const TaskList = ({ tasks, showOnlyIncompleteTasks, toggleTaskDone, deleteTask, updateTask }) => {
+const TaskList = ({ tasks, showOnlyIncompleteTasks }) => {
 
     const [editingTaskID, setEditingTaskID] = useState(null);
 
@@ -20,9 +20,9 @@ const TaskList = ({ tasks, showOnlyIncompleteTasks, toggleTaskDone, deleteTask, 
             }}>
                 {task.id === editingTaskID? 
                 (
-                    <TaskEditForm task={task} setEditingTaskID={setEditingTaskID} updateTask={updateTask}/>
+                    <TaskEditForm task={task} setEditingTaskID={setEditingTaskID}/>
                 ) : (
-                    <TaskItem task={task} toggleTaskDone={toggleTaskDone} deleteTask={deleteTask} setEditingTaskID={setEditingTaskID}/>
+                    <TaskItem task={task} setEditingTaskID={setEditingTaskID}/>
                 )}
             </li> ))}
         </ul>

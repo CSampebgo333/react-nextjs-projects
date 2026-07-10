@@ -1,7 +1,10 @@
 import { Check } from "lucide-react";
 import { useState } from "react";
+import { useTaskActions } from "../contexts/TaskContext";
 
-const TaskEditForm = ( { task, setEditingTaskID, updateTask } ) => {
+const TaskEditForm = ( { task, setEditingTaskID } ) => {
+
+    const {updateTask} = useTaskActions();
 
     const [newText, setNewText] = useState(task.text);
     const [newPriority, setNewPriority] = useState(task.priority);
