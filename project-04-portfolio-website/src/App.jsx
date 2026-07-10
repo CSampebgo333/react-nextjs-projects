@@ -1,8 +1,14 @@
+import Parent from "./components/Parent";
+import { UserContext } from "./contexts/UserContext";
+
 const App = () => {
+
+  const user = {name: "Clément"}
+
   return (
-    <>
-      <h2>React is Fun!</h2>
-    </>
+    <UserContext.Provider value={user}>
+      <Parent />
+    </UserContext.Provider>
   );
 }
 
