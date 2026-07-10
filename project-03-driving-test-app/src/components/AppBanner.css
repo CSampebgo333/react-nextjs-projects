@@ -1,0 +1,42 @@
+.app-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 20px;
+    background-color: #f0f8ff;
+    border: 1px solid #cceeff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    color: #333;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.car-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.banner-text {
+    font-weight: 500;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .app-banner {
+        flex-direction: column;
+        padding: 10px 15px;
+        gap: 8px;
+    }
+
+    .car-icon {
+        font-size: 2rem;
+    }
+
+    .banner-text {
+        font-size: 1rem;
+    }
+}

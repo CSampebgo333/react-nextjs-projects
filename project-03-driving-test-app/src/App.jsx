@@ -6,6 +6,7 @@ import { quizReducer } from "./state/quizReducer.js";
 import TempComponent from "./components/tempComponent.jsx";
 import QuestionView from "./components/QuestionView.jsx";
 import ProgressBar from "./components/ProgressBar.jsx";
+import AppBanner from "./components/AppBanner.jsx";
 
 
 const initialState = {
@@ -44,6 +45,7 @@ const App = () => {
     <div className="app-container">
       <TempComponent state={state} dispatch={dispatch}/>
       <ProgressBar current={state.currentQuestionIndex} total={questions.length}/>
+      <AppBanner />
       <div className="quiz-container">
         {state.submitted ? resultView : questionView}
       </div>
