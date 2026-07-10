@@ -23,3 +23,22 @@
     background-color: #007bff;
     color: #ffffff;
 }
+
+.button.navigation-outline {
+    background-color: #ffffff;
+    border: 2px solid #20c997;
+    color: #20c997;
+}
+
+.button.navigation-outline:hover {
+    background-color: #e0fff6;
+}
+.button.navigation-selected {
+    background-color: #20c997;
+    color: #ffffff;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

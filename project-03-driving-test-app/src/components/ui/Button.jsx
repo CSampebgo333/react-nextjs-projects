@@ -1,12 +1,14 @@
 import "./Button.css";
 
-export const Button = ( {children, selected, onClick} ) => {
+export const Button = ( {children, selected, onClick, disabled, variant} ) => {
 
-    const className = `button ${selected ? "selected" : "outline"}`;
+    const className = `button ${variant || (selected ? "selected" : "outline")}`;
 
     return (
-        <button className = {className}
-        onClick={onClick}>
+        <button 
+        className = {className}
+        onClick={onClick}
+        disabled={disabled}>
 
             {children}
         </button>

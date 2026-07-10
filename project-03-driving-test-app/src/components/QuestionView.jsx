@@ -3,6 +3,7 @@ import { Card } from "./ui/Card.jsx";
 import QuestionText from "./QuestionText.jsx";
 import AnswerOptions from "./AnswerOptions.jsx";
 import MediaDisplay from "./MediaDisplay.jsx";
+import NavigationControls from "./NavigationControls.jsx";
 
 
 const QuestionView = (
@@ -30,7 +31,14 @@ const QuestionView = (
                     <QuestionText text={q.question} />
                     <AnswerOptions options={q.options} selectedAnswer={selectedAnswer} onSelect={onAnswer} />
                 </div>
+                { (q.type === "image" || q.type === "video") && (
+                    <MediaDisplay key={q.id} type={q.type} image={q.image} video={q.video} /> 
+                )}
             </div>
+            <NavigationControls currentQuestionIndex={currentQuestionIndex} 
+            totalQuestions={totalQuestions} 
+            dispatch={dispatch} 
+            />
         </Card>
     );
 }
