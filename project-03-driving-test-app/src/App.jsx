@@ -3,7 +3,6 @@ import { useReducer } from "react";
 import "./App.css";
 import questions from "./data/questions.js";
 import { quizReducer } from "./state/quizReducer.js";
-import TempComponent from "./components/tempComponent.jsx";
 import QuestionView from "./components/QuestionView.jsx";
 import ProgressBar from "./components/ProgressBar.jsx";
 import AppBanner from "./components/AppBanner.jsx";
@@ -52,7 +51,6 @@ const App = () => {
   
   return (
     <div className="app-container">
-      <TempComponent state={state} dispatch={dispatch}/>
       <ProgressBar current={state.currentQuestionIndex} total={questions.length}/>
       <AppBanner />
       <div className="quiz-container">
