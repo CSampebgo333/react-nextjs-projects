@@ -7,6 +7,7 @@ import TempComponent from "./components/tempComponent.jsx";
 import QuestionView from "./components/QuestionView.jsx";
 import ProgressBar from "./components/ProgressBar.jsx";
 import AppBanner from "./components/AppBanner.jsx";
+import ResultView from "./components/ResultView.jsx";
 
 
 const initialState = {
@@ -22,6 +23,10 @@ const App = () => {
   const [state, dispatch] = useReducer((state, action) => quizReducer(state, action, questions.length), initialState);
 
   const q = questions[state.currentQuestionIndex];
+
+  const score = state.answers.reduce((acc, answer, index) => {
+    return answer === questions[index].correctAnswer? acc + 1 : acc;
+  }, 0)
 
   const handleAnswer = (index) => {
     dispatch({type: "ANSWER", payload: index});
@@ -39,7 +44,11 @@ const App = () => {
     />
   );
 
-  const resultView = (<></>);
+  const resultView = (
+  <div>
+    <ResultView score={score} questions={questions} answers={state.answers} />
+  </div>
+  );
   
   return (
     <div className="app-container">
