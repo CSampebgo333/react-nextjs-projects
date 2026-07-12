@@ -1,3 +1,4 @@
+import ThemeProvider from "./context/ThemeProvider";
 import Navbar from "./components/Navbar";
 import ScrollDots from "./components/ScrollDots";
 import Hero from "./components/Hero";
@@ -6,8 +7,6 @@ import SkillsExperienceSection from "./components/SkillsExperienceSection";
 import RecommendationSection from "./components/RecommendationSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
-
-import ThemeProvider from "./context/ThemeProvider";
 
 
 const App = () => {
