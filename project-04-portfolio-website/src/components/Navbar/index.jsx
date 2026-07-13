@@ -52,7 +52,7 @@ const Navbar = () => {
                         </a>
                     ))}
                     <button onClick={toggleTheme}
-                        className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition cursor-pointer">
+                        className="transition hover:text-blue-500 cursor-pointer">
                         {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
                     </button>
                 </div>
