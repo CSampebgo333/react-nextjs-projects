@@ -1,7 +1,7 @@
 const Hero = () => {
     return (
         <section className="min-h-screen pt-24 flex flex-col md:flex-row items-center justify-between dark:bg-gray-800 px-6 md:px-20 py-10">
-            <di className="max-w-lg space-y-4">
+            <div className="max-w-lg space-y-4">
                 <p>👋Hello, I am </p>
                 <h1 className="text-4xl md:text-6xl font-bold text-blue-600 dark:text-blue-400">Clément</h1>
                 <p className="text-gray-600 dark:text-gray-400 text-xl"> 
@@ -17,7 +17,7 @@ const Hero = () => {
                         Download CV
                     </a>
                 </div>
-            </di>
+            </div>
 
             <div className="relative mt-10 md:mt-0">
                 <img src="/images/hero/hero.jpg"
@@ -26,9 +26,16 @@ const Hero = () => {
                      width={300}
                      height={300}
                 />
-                <div>
+                <div className="absolute -top-5 -right-5 bg-white dark:bg-blue-700 p-2 rounded-full shadow-md">
+                    <img src="/images/hero/flutter.svg"
+                         alt="Flutter"
+                         className="w-8 h-8"
+                    />
+                </div>
+                <div className="absolute -bottom-5 -left-5 bg-white dark:bg-blue-700 p-2 rounded-full shadow-md">
                     <img src="/images/hero/convex.svg"
-                        alt="convex"
+                         alt="convex"
+                         className="w-8 h-8"
                     />
                 </div>
 
