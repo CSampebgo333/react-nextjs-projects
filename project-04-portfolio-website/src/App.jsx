@@ -7,6 +7,7 @@ import SkillsExperienceSection from "./components/SkillsExperienceSection";
 import RecommendationSection from "./components/RecommendationSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import "./App.css";
 
 
 const App = () => {
@@ -17,9 +18,9 @@ const App = () => {
         <Navbar />
         <ScrollDots />
         <div id="hero"> <Hero /> </div>
-        <div id="project"> <ProjectSection /> </div>
-        <div id="skill"> <SkillsExperienceSection /> </div>
-        <div id="recommendation"> <RecommendationSection /> </div>
+        <div id="projects"> <ProjectSection /> </div>
+        <div id="skills"> <SkillsExperienceSection /> </div>
+        <div id="recommendations"> <RecommendationSection /> </div>
         <div id="contact"> <ContactSection /> </div>
         <Footer />
       </div>
