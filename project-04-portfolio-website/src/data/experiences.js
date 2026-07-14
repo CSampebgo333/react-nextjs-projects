@@ -1,18 +1,42 @@
 const experiences = [
   {
-    title: "Frontend Developer",
-    company: "TechCorp",
-    years: "2022 - Present",
+    title: "Marine Conservation Data Analytics Extern",
+    company: "National Geographic Society + The Nature Conservancy",
+    location: "Remote",
+    period: "Sep 2025 – Nov 2025",
+    type: "Externship",
   },
+
   {
-    title: "Mobile Developer",
-    company: "Appify",
-    years: "2020 - 2022",
+    title: "Consumer Insights Data Analytics Extern",
+    company: "Beats by Dre",
+    location: "Remote",
+    period: "Jun 2024 – Jul 2024",
+    type: "Externship",
   },
+
   {
-    title: "Intern Developer",
-    company: "WebStart",
-    years: "2019 - 2020",
+    title: "Founder",
+    company: "Association Neb lã Bũmbu",
+    location: "Burkina Faso",
+    period: "Feb 2023 – Present",
+    type: "Leadership",
+  },
+
+  {
+    title: "Peer Tutor",
+    company: "Ashesi University",
+    location: "Berekuso, Ghana",
+    period: "Jun 2024 – Present",
+    type: "Teaching",
+  },
+
+  {
+    title: "Member",
+    company: "Youths4Change Initiative",
+    location: "Ashesi University",
+    period: "Dec 2024 – Present",
+    type: "Volunteer",
   },
 ];
 

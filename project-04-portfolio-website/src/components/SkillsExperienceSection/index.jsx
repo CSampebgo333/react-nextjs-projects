@@ -1,5 +1,6 @@
 import SkillCard from "./SkillCard";
 import ExperienceItem from "./ExperienceItem";
+import experiences from "../../data/experiences";
 
 import {
     FaReact,
@@ -58,8 +59,18 @@ const SkillsExperienceSection = () => {
                         ))}
                     </div>
                 </div>
-                <div>
+                <div className="border-l-4 border-blue-600 dark:border-blue-400 pl-6 space-y-5">
                     <h4 className="text-2xl font-semibold mb-4">Experience</h4>
+                    {experiences.map((exp, index) => (
+                        <ExperienceItem 
+                            key={index}
+                            title={exp.title}
+                            company={exp.company}
+                            location={exp.location}
+                            period={exp.period}
+                            type={exp.type}
+                        />
+                    ))}
                 </div>
             </div>
         </section>
