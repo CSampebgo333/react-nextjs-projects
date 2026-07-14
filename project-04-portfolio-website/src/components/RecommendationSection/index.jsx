@@ -1,14 +1,19 @@
+import { useState } from "react";
 import ArrowNavigation from "./ArrowNavigation";
 import CompanyLogo from "./CompanyLogo";
 import TestimonialCard from "./TestimonialCard";
 import testimonials from "../../data/testimonials";
-import { useState } from "react";
+import companyLogos from "../../data/companyLogos";
 
 const RecommendationSection = () => {
 
     const [current, setCurrent] = useState(0);
 
-    const testimonial = testimonials[current]
+    const prev = () => setCurrent((prev) => prev === 0? testimonials.length - 1 : prev - 1);
+
+    const next = () => setCurrent((prev) => prev === testimonials.length - 1? 0 : prev + 1);
+
+    const testimonial = testimonials[current];
 
     return (
         <section className="min-h-screen py-20 px-4 text-center bg-gray-100 dark:bg-gray-900">
@@ -19,6 +24,16 @@ const RecommendationSection = () => {
                 What People Say 
             </h3>
             <TestimonialCard testimonial={testimonial} />
+            <ArrowNavigation prev={prev} next={next}/>
+            <div className="flex flex-wrap justify-center gap-10 mt-16">
+                {companyLogos.map((logo, index) => (
+                    <CompanyLogo 
+                        key={index}
+                        logo={logo}
+                        index={index}
+                    />
+                ))}
+            </div>
         </section>
     )
 }
