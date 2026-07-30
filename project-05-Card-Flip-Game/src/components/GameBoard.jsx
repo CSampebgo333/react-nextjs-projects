@@ -10,7 +10,11 @@ const GameBoard = ({ gridSize, deck, setMoves, setMatches}) => {
             }}
         >
             {deck.map((icon, index) => (
-                <Card key={index} icon={icon} gridSize={gridSize}/>
+                <Card key={index} 
+                    icon={icon}
+                    gridSize={gridSize}
+                    onClick={() => {console.log(`Card ${index + 1} clicked!`)}}
+                />
             ))}
         </div>
     )
