@@ -52,6 +52,7 @@ const App = () => {
         setMatches={setMatches} 
       />
       <h1 className="text-3xl font-bold text-center mb-4">Memory Match Mania</h1>
+      
       {/* Settings: Let user include greed size and restart the game */}
       <Settings onGridChange={ReInitializeGame}/>
 
