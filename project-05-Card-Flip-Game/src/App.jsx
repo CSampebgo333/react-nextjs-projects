@@ -26,9 +26,16 @@ const App = () => {
 
   const [moves, setMoves] = useState(0);
 
-  const [matches, setMatches] = useState(0);
+  const [matches, setMatches] = useState(8);
 
   const [resetCounter, setResetCounter] = useState(0);
+
+  const ReInitializeGame = (size) => {
+    setGridSize(size);
+    setDeck(createNewDeck(size));
+    setMoves(0);
+    setMatches(0);
+  }
 
   return (
     <div>
@@ -43,14 +50,19 @@ const App = () => {
       />
       <h1 className="text-3xl font-bold text-center mb-4">Memory Match Mania</h1>
       {/* Settings: Let user include greed size and restart the game */}
+      <Settings onGridChange={ReInitializeGame}/>
 
       {/* ScoreBoard: Contains number of moves, matches and total pairs */}
+      <ScoreBoard moves={moves} matches={matches} total={deck.length / 2}/>
 
       {/* ResetButton: Contains the resetButton */}
+      <ResetButton onReset={() => ReInitializeGame(gridSize)} />
 
       {/* GameBoard: Contains the Card */}
 
       {/* Graffiti: Show the Wining celebration while play the Wining Song */}
+      {matches === deck.length / 2 && <Graffiti />}
+      
     </div>
   );
 }

@@ -23,17 +23,17 @@ const TempComponent = ({ deck, gridSize, moves, matches, resetCounter, setMoves,
                 Log Deck
                 </button>
                 <button onClick={() => console.log(`Grid: ${gridSize}\nMoves: ${moves}\nMatches: ${matches}\nResetCount: ${resetCounter}`)}
-                className="px-3 py-1 bg-green-500 text-white rounded shadow cursor-pointer"
+                    className="px-3 py-1 bg-green-500 text-white rounded shadow cursor-pointer"
                 >
                 Log State
                 </button>
                 <button onClick={() => setMoves((prev) => prev + 1)}
-                className="px-3 py-1 bg-yellow-500 text-white rounded shadow cursor-pointer"
+                    className="px-3 py-1 bg-yellow-500 text-white rounded shadow cursor-pointer"
                 >
                 +1 Move
                 </button>
                 <button onClick={() => setMatches((prev) => prev + 1)}
-                className="px-3 py-1 bg-orange-500 text-white rounded shadow cursor-pointer"
+                    className="px-3 py-1 bg-pink-500 text-white rounded shadow cursor-pointer"
                 >
                 +1 Match
                 </button>
