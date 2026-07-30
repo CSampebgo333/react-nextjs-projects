@@ -4,19 +4,43 @@ import ScoreBoard from "./components/Scoreboard";
 import ResetButton from "./components/ResetButton";
 import Graffiti from "./components/Graffiti";
 import GameBoard from "./components/GameBoard";
+import generateIcons from "./utils/generateIcons";
+import shuffleDeck from "./utils/shuffleDeck";
+import TempComponent from "./components/TempComponent";
 
 
 const App = () => {
 
-  const [grideSize, setGridSize] = useState(4);
+  const [gridSize, setGridSize] = useState(4);
 
-  const [dect, setDect] = useState([
-    "🎁", "🍎", "🐸", "🐶", "🎮", "🧠", "🍎", "🍕",
-    "🎁","🚀", "🐶", "🍕", "🚀", "🐸", "🎮", "🧠", 
-  ])
+  const createNewDeck = (size) => {
+
+    const iconCount = (size * size) / 2;
+    const icons = generateIcons(iconCount);
+    const newDeck = [...icons, ...icons];
+
+    return shuffleDeck(newDeck);
+  }
+
+  const [deck, setDeck] = useState(createNewDeck(4))
+
+  const [moves, setMoves] = useState(0);
+
+  const [matches, setMatches] = useState(0);
+
+  const [resetCounter, setResetCounter] = useState(0);
 
   return (
     <div>
+      <TempComponent 
+        deck={deck} 
+        gridSize={gridSize} 
+        moves={moves} 
+        matches={matches} 
+        resetCounter={resetCounter}
+        setMoves={setMoves}
+        setMatches={setMatches} 
+      />
       <h1 className="text-3xl font-bold text-center mb-4">Memory Match Mania</h1>
       {/* Settings: Let user include greed size and restart the game */}
 
