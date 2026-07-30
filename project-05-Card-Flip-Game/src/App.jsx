@@ -38,7 +38,10 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className={
+      "h-screen flex flex-col p-4 max-w-3xl " +  
+      "mx-auto bg-linear-to-bl from-cyan-100 via-blue-50 to-white" 
+    }>
       <TempComponent 
         deck={deck} 
         gridSize={gridSize} 
@@ -59,6 +62,14 @@ const App = () => {
       <ResetButton onReset={() => ReInitializeGame(gridSize)} />
 
       {/* GameBoard: Contains the Card */}
+      <div className="grow">
+        <GameBoard 
+          gridSize={gridSize}
+          deck={deck}
+          setMoves={setMoves}
+          setMatches={setMatches}
+        />
+      </div>
 
       {/* Graffiti: Show the Wining celebration while play the Wining Song */}
       {matches === deck.length / 2 && <Graffiti />}
