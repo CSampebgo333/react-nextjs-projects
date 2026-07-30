@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Settings from "./components/Settings";
 import ScoreBoard from "./components/Scoreboard";
 import ResetButton from "./components/ResetButton";
@@ -6,6 +7,13 @@ import GameBoard from "./components/GameBoard";
 
 
 const App = () => {
+
+  const [grideSize, setGridSize] = useState(4);
+
+  const [dect, setDect] = useState([
+    "🎁", "🍎", "🐸", "🐶", "🎮", "🧠", "🍎", "🍕",
+    "🎁","🚀", "🐶", "🍕", "🚀", "🐸", "🎮", "🧠", 
+  ])
 
   return (
     <div>
