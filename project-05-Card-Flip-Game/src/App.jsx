@@ -26,7 +26,7 @@ const App = () => {
 
   const [moves, setMoves] = useState(0);
 
-  const [matches, setMatches] = useState(8);
+  const [matches, setMatches] = useState(0);
 
   const [resetCounter, setResetCounter] = useState(0);
 
@@ -62,7 +62,7 @@ const App = () => {
 
       {/* Graffiti: Show the Wining celebration while play the Wining Song */}
       {matches === deck.length / 2 && <Graffiti />}
-      
+
     </div>
   );
 }
