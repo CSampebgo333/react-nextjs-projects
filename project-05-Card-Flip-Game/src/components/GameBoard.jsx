@@ -30,7 +30,13 @@ const GameBoard = ({ gridSize, deck, setMoves, setMatches}) => {
             firstCard.current = null;
             secondCard.current = null;
             lockBoard.current = false;
-            setMatches((prev) => prev + 1);
+            setMatches((prev) => {
+                if (prev + 1 === deck.length / 2){
+                    const audio = new Audio("sounds/win.mp3");
+                    audio.play()
+                }
+                return prev + 1;
+            });
         } else {
             setTimeout(() => {
                 firstCard.current.unFlip();
