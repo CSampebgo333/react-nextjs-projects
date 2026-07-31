@@ -1,6 +1,46 @@
+import { useRef } from "react";
 import Card from "./Card";
 
 const GameBoard = ({ gridSize, deck, setMoves, setMatches}) => {
+
+    const cardRefs = useRef([]);
+
+    const firstCard = useRef(null);
+
+    const secondCard = useRef(null);
+
+    const lockBoard = useRef(false);
+
+    const handleCardClick = (index) => {
+
+        const card = cardRefs.current[index];
+
+        if (!card || card.flipped || lockBoard.current) return;
+        card.flip();
+
+        if (!firstCard.current){
+            firstCard.current = card;
+            return;
+        }
+        secondCard.current = card;
+        lockBoard.current = true;
+        setMoves((prev) => prev + 1);
+
+        if (firstCard.current.icon === secondCard.current.icon){
+            firstCard.current = null;
+            secondCard.current = null;
+            lockBoard.current = false;
+            setMatches((prev) => prev + 1);
+        } else {
+            setTimeout(() => {
+                firstCard.current.unFlip();
+                secondCard.current.unFlip();
+                firstCard.current = null;
+                secondCard.current = null;
+                lockBoard.current = false;
+            }, 1000)
+        }
+    }
 
     return (
         <div className="grid gap-2 h-full"
@@ -13,7 +53,8 @@ const GameBoard = ({ gridSize, deck, setMoves, setMatches}) => {
                 <Card key={index} 
                     icon={icon}
                     gridSize={gridSize}
-                    onClick={() => {console.log(`Card ${index + 1} clicked!`)}}
+                    ref={(card) => (cardRefs.current[index] = card)}
+                    onClick={() => handleCardClick(index)}
                 />
             ))}
         </div>

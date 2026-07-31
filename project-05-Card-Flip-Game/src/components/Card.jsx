@@ -1,8 +1,24 @@
-import { useState } from "react";
+import { useState, useImperativeHandle, forwardRef } from "react";
 
-const Card = ({ icon, gridSize, onClick }) => {
+const Card = ({ icon, gridSize, onClick }, ref) => {
 
     const [flipped, setFlip] = useState(false)
+
+    useImperativeHandle (ref, () => ({
+
+        flip: () => setFlip(true),
+        unFlip: () => setFlip(false),
+
+        get flipped() {
+            return flipped;
+        },
+
+        get icon() {
+            return icon;
+        },
+
+
+    }))
     
     let baseClass = gridSize === 4
         ? "text-4xl sm:text-5xl"
@@ -17,7 +33,7 @@ const Card = ({ icon, gridSize, onClick }) => {
 
     return (
         <div className="w-full h-full cursor-pointer select-none perspective"
-            onClick={() => {setFlip(!flipped); onClick?.()}}
+            onClick={onClick}
         >
             <div className={
                 `relative w-full h-full 
@@ -48,4 +64,4 @@ const Card = ({ icon, gridSize, onClick }) => {
     )
 }
 
-export default Card;
+export default forwardRef(Card);
