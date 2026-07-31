@@ -6,9 +6,11 @@ A collection of small React and Next.js practice projects, each exploring differ
 
 | Project | Description |
 |---|---|
-| [react-project_1](./react-project_1/README.md) | A rental property listings app — displays property cards with type, price, availability, and key attributes. |
-| [react-project_2](./react-project_2/README.md) | A to-do list app with task priorities, sorting, filtering, and persistent storage via `localStorage`. |
-| [react-project_3](./react-project_3/README.md) | A driving theory quiz app supporting text/image/video questions, a countdown timer, and answer feedback. |
+| [project-01-real-estate-app](./project-01-real-estate-app/README.md) | A rental property listings app — displays property cards with type, price, availability, and key attributes. |
+| [project-02-todo-app](./project-02-todo-app/README.md) | A to-do list app with task priorities, sorting, filtering, and persistent storage via `localStorage`. |
+| [project-03-driving-test-app](./project-03-driving-test-app/README.md) | A driving theory quiz app supporting text/image/video questions, a countdown timer, and answer feedback. |
+| [project-04-portfolio-website](./project-04-portfolio-website/README.md) | A personal portfolio site with a filterable project gallery, testimonials carousel, and light/dark theme toggle. |
+| [project-05-card-flip-game](./project-05-card-flip-game/README.md) | A memory-matching card flip game with adjustable grid sizes, move/match tracking, and sound effects. |
 
 Each project has its own README with setup instructions, project structure, and implementation notes.
 
@@ -19,6 +21,8 @@ All current projects are built with:
 - [React 19](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - ESLint
+
+Some of the more recent projects (portfolio website, card flip game) also use [Tailwind CSS v4](https://tailwindcss.com/) for styling.
 
 Next.js projects may be added to this repo over time.
 
