@@ -35,6 +35,7 @@ const App = () => {
     setDeck(createNewDeck(size));
     setMoves(0);
     setMatches(0);
+    setResetCounter((prev) => prev + 1);
   }
 
   return (
@@ -64,7 +65,8 @@ const App = () => {
 
       {/* GameBoard: Contains the Card */}
       <div className="grow">
-        <GameBoard 
+        <GameBoard
+          resetKey={resetCounter} 
           gridSize={gridSize}
           deck={deck}
           setMoves={setMoves}

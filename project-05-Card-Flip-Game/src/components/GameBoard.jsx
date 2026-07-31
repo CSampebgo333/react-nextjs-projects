@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import Card from "./Card";
 
-const GameBoard = ({ gridSize, deck, setMoves, setMatches}) => {
+const GameBoard = ({ gridSize, deck, setMoves, setMatches, resetKey }) => {
 
     const cardRefs = useRef([]);
 

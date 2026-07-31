@@ -2,7 +2,11 @@ const ResetButton = ({ onReset }) => {
     return (
         <button 
             onClick={onReset}
-            className="fixed bottom-4 right-4 px-4 py-2 text-sm font-medium rounded-full shadow bg-linear-to-tr from-blue-400 via-cyan-300 to-white text-blue-900 hover:brightness-105 transition cursor-pointer"
+            className={
+                "fixed bottom-4 right-4 px-4 py-2 text-sm font-medium rounded-full shadow" + 
+                " bg-linear-to-tr from-blue-400 via-cyan-300 to-white text-blue-900" + 
+                " hover:brightness-105 transition cursor-pointer z-50"
+            }
         >
             <span 
                 role="img"
