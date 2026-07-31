@@ -1,5 +1,4 @@
 /*global google */
-
 import { useRef, useEffect } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 
@@ -11,7 +10,7 @@ const App = () => {
 
   const center = {
     lat: 12.3714,
-    lng: -1.5197, // Ouagadougou, Burkina Faso
+    lng: -1.5197,
   };
 
   const containerStyle = {
