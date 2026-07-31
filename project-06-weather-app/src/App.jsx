@@ -1,10 +1,22 @@
 import { useEffect } from "react";
 
 const App = () => {
-  
+
+  useEffect(() => {
+    const handleKeyDown = (keyPressed) => {
+      if (keyPressed.key === " "){
+        console.log("Spacebar Key Pressed!");
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    }
+
+  }, [])
   return (
     <div>
-      <h1>Waiting for 2 seconds...</h1>
+      Press the "Spacebar" key to trigger an event!
     </div>
   )
 }
