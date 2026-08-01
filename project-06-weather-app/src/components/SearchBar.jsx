@@ -44,7 +44,6 @@ const SearchBar = ({ onCitySelect }) => {
         setQuery(city.name);
         setSuggestions([]);
         onCitySelect(city);
-        console.log("Selected city:", city);
     }
 
     return (
