@@ -31,8 +31,6 @@ const SearchBar = ({ onCitySelect }) => {
                     setSuggestions([]);
                 }
 
-                console.log("API Response:", data);
-
             } catch (error) {
                 console.error("Error fetching city suggestions:", error);
                 setSuggestions([]);
@@ -46,6 +44,7 @@ const SearchBar = ({ onCitySelect }) => {
         setQuery(city.name);
         setSuggestions([]);
         onCitySelect(city);
+        console.log("Selected city:", city);
     }
 
     return (

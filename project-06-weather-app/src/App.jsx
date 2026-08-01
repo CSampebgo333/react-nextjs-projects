@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
@@ -26,6 +26,43 @@ const App = () => {
   const handleCitySelected = (city) => {
     setSelectedCity(city);
   };
+
+  useEffect(() => {
+    
+    if (!selectedCity) return;
+
+    const fetchWeatherData = async () => {
+      try {
+
+        const {latitude, longitude} = selectedCity;
+
+        const baseUrl = "https://api.open-meteo.com/v1/forecast";
+        
+        const params = new URLSearchParams({
+          latitude: latitude,
+          longitude: longitude,
+          current_weather: true,
+          daily: "temperature_2m_max,temperature_2m_min,weathercode",
+          hourly: "temperature_2m,relative_humidity_2m,wind_speed_10m,weathercode",
+          timezone: "auto"
+        });
+
+        const url = `${baseUrl}?${params.toString()}`;
+        
+        const response = await fetch(url);
+
+        const weatherJson = await response.json();
+
+        setData({...weatherJson, location: selectedCity});
+
+        console.log("Fetched weather data:", weatherJson);
+
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+      }
+    }
+    fetchWeatherData();
+  }, [selectedCity]);
  
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-400 via-blue-500 to-blue-600">
@@ -37,7 +74,7 @@ const App = () => {
         {weatherData && <CurrentWeather weatherData={weatherData} />}
 
         {hourlyData.length > 0 && <HourlyForecast hourlyData={hourlyData} />}
-        
+
         {forecastData.length > 0 && <Forecast forecastData={forecastData} />}
       </div>
     </div>
