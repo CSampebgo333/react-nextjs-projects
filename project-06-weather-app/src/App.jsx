@@ -28,7 +28,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    
+
     if (!selectedCity) return;
 
     const fetchWeatherData = async () => {
@@ -63,6 +63,45 @@ const App = () => {
     }
     fetchWeatherData();
   }, [selectedCity]);
+
+
+  useEffect(() => {
+
+    if (!data || !data.location) return;
+    
+    const { location, current_weather, daily, hourly } = data;
+    
+    const currentWeather = {
+      city: location.name,
+      country: location.country,
+      temperature: current_weather.temperature,
+      feels_like: current_weather.apparent_temperature,
+      humidity: current_weather.relative_humidity_2m[0],
+      windspeed: current_weather.windspeed,
+      weathercode: current_weather.weathercode,
+      minTemperature: daily.temperature_2m_min[0],
+      maxTemperature: daily.temperature_2m_max[0],
+    }
+    setWeatherData(currentWeather);
+
+    const forecast = daily.time.slice(1, 7).map((date, index) => ({
+      day: new Date(date).toLocaleDateString(undefined, { weekday: 'long' }),
+      minTemperature: daily.temperature_2m_min[index + 1],
+      maxTemperature: daily.temperature_2m_max[index + 1],
+      weathercode: daily.weathercode[index + 1],
+    }));
+    setForecastData(forecast);
+
+    const hourlyForecast = hourly.time.slice(1, 24).map((time, index) =({
+      time: new Date(time).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }),
+      temperature: hourly.temperature_2m[index + 1],
+      humidity: hourly.relative_humidity_2m[index + 1],
+      windspeed: hourly.wind_speed_10m[index + 1],
+      weathercode: hourly.weathercode[index + 1],
+    }))
+    setHourlyData(hourlyForecast);
+
+  }, [data]);
  
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-400 via-blue-500 to-blue-600">

@@ -71,7 +71,7 @@ const SearchBar = ({ onCitySelect }) => {
                             key={index}
                             className={
                                 "px-4 py-2 text-left text-gray-700 cursor-pointer" +
-                                " hover:bg-blue-50 rounded-md transition-colors duration-200" + 
+                                " hover:bg-blue-100 rounded-md transition-colors duration-200" + 
                                 " ease-in-out border-b border-gray-100 last:border-b-0"
                             }
                             onClick={() => handleSuggestionClick(city)}
