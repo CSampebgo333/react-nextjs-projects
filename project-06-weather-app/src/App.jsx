@@ -27,6 +27,19 @@ const App = () => {
     setSelectedCity(city);
   };
 
+  
+  useEffect(() => {
+
+    const defaultCity = {
+      name: "Ouagadougu",
+      country: "Burkina Faso",
+      latitude: 12.3714,
+      longitude: -1.5197,
+    };
+
+    setSelectedCity(defaultCity);
+  }, [])
+
   useEffect(() => {
 
     if (!selectedCity) return;
@@ -55,8 +68,6 @@ const App = () => {
 
         setData({...weatherJson, location: selectedCity});
 
-        console.log("Fetched weather data:", weatherJson);
-
       } catch (error) {
         console.error("Error fetching weather data:", error);
       }
@@ -68,6 +79,8 @@ const App = () => {
   useEffect(() => {
 
     if (!data || !data.location) return;
+
+        console.log("Raw weather data:", data);
     
     const { location, current_weather, daily, hourly } = data;
     
@@ -75,8 +88,8 @@ const App = () => {
       city: location.name,
       country: location.country,
       temperature: current_weather.temperature,
-      feels_like: current_weather.apparent_temperature,
-      humidity: current_weather.relative_humidity_2m[0],
+      feels_like: hourly.temperature_2m ? hourly.temperature_2m[0] : current_weather.temperature, // Use hourly data or fallback to temperature
+      humidity: hourly.relative_humidity_2m ? hourly.relative_humidity_2m[0] : 0, // Get from hourly data
       windspeed: current_weather.windspeed,
       weathercode: current_weather.weathercode,
       minTemperature: daily.temperature_2m_min[0],
@@ -92,7 +105,7 @@ const App = () => {
     }));
     setForecastData(forecast);
 
-    const hourlyForecast = hourly.time.slice(1, 24).map((time, index) =({
+    const hourlyForecast = hourly.time.slice(1, 24).map((time, index) => ({
       time: new Date(time).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }),
       temperature: hourly.temperature_2m[index + 1],
       humidity: hourly.relative_humidity_2m[index + 1],
