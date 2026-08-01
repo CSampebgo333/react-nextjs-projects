@@ -1,6 +1,27 @@
+import { useState } from 'react';
+
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import CurrentWeather from './components/CurrentWeather';
+import HourlyForecast from './components/HourlyForecast';
+import Forecast from './components/Forecast';
+
 const App = () => {
+
   return (
-    <div><h1>React is Fun!</h1></div>
+    <div>
+
+      <Header />
+
+      <SearchBar />
+
+      <CurrentWeather />
+
+      <HourlyForecast />
+
+      <Forecast />
+
+    </div>
   )
 }
 
