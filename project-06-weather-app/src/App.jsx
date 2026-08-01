@@ -27,6 +27,8 @@ const App = () => {
     setSelectedCity(city);
   };
 
+
+  /*
   
   useEffect(() => {
 
@@ -39,6 +41,8 @@ const App = () => {
 
     setSelectedCity(defaultCity);
   }, [])
+
+  */
 
   useEffect(() => {
 
