@@ -11,7 +11,7 @@ const translations = {
     author: "Author",
     selectLanguage: "Select Language",
     english: "English",
-    french: "Français",
+    french: "French",
     footerText: "Made with ❤️ for young readers everywhere",
   },
   fr: {

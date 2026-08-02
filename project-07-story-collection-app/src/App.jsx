@@ -1,4 +1,4 @@
-import { BrowserRoute, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import Header from "./components/Header";
 import StoryList from "./pages/StoryList";
@@ -10,7 +10,7 @@ import LanguageTest from "./tests/LanguageTest";
 const App = () => {
     return (
         <LanguageProvider>
-            <BrowserRoute>
+            <BrowserRouter>
             <div className="min-h-screen flex flex-col">
                 <Header />
                 <main className="grow">
@@ -31,7 +31,7 @@ const App = () => {
                 </main>
                 <Footer />
             </div>
-            </BrowserRoute>
+            </BrowserRouter>
         </LanguageProvider>
     )
 };
