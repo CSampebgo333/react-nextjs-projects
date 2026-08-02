@@ -11,4 +11,7 @@ export default defineConfig({
     eslint(), 
     tailwindcss(),
   ],
+  server: {
+    port: 3013,
+  }
 })

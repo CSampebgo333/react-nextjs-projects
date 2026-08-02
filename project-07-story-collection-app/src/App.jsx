@@ -1,11 +1,14 @@
-
+import Header from "./components/Header";
+import StoryList from "./pages/StoryList";
+import StoryDetail from "./pages/StoryDetail";
+import Footer from "./components/Footer";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
-  return (
+    return (
     <div>
-      <h1 className="text-3xl font-bold text-blue-500">React is Fun Learning!</h1>
     </div>
-  )
-}
+    );
+};
 
 export default App;
