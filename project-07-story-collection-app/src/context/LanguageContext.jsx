@@ -21,7 +21,7 @@ const translations = {
     storyListSubtitle: "Découvrez des contes intemporels qui stimulent l'imagination et enseignent de précieuses leçons",
     backToStories: "Retour aux Histoires",
     readStory: "Lire l'Histoire",
-    author: "Auteur",
+    author: "Auteur ",
     selectLanguage: "Choisir la Langue",
     english: "Anglais",
     french: "Français",
