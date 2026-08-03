@@ -80,11 +80,8 @@ const StoryDetail = () => {
         );
     }
 
-    // Get the gradient for this story
-    const gradient = getStoryGradient(story.slug);
-
     return (
-        <div className={`min-h-screen bg-linear-to-r ${gradient} py-8`}>
+        <div className={`min-h-screen bg-linear-to-r ${getStoryGradient(story.slug)} py-8`}>
             <div className="container mx-auto px-4 max-w-4xl">
                 <Link
                     to="/"
@@ -95,7 +92,7 @@ const StoryDetail = () => {
                 </Link>
                 
                 <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg p-8">
-                    <h1 className="text-3xl font-bold text-stone-800 mb-4">
+                    <h1 className="text-3xl font-bold text-stone-800 mb-5">
                         {story.title}
                     </h1>
                     <div className="flex items-center gap-2 text-stone-600 mb-6">
@@ -103,10 +100,22 @@ const StoryDetail = () => {
                         <span>{translate("author")}: {story.author}</span>
                     </div>
                     <div className="prose prose-stone max-w-none">
-                        <p className="text-stone-700 leading-relaxed whitespace-pre-wrap">
-                            {story.content}
+                        <p className="text-stone-700 leading-relaxed whitespace-pre-wrap prose-p:first-letter:hidden">
+                            <span className="text-6xl font-bold float-left leading-none mr-2 text-stone-800 font-serif">
+                                {story.content?.trim().charAt(0)}
+                            </span>
+                            {story.content?.trim().slice(1)}
                         </p>
                     </div>
+                </div>
+                <div className="mt-7">
+                    <Link
+                        to="/"
+                        className="inline-flex items-center gap-2 text-white/90 hover:text-white transition-colors mb-6 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full hover:bg-black/30"
+                    >
+                        <ArrowLeft className="w-4 h-4" />
+                        <span className="font-medium">{translate("backToStories")}</span>
+                    </Link>
                 </div>
             </div>
         </div>
