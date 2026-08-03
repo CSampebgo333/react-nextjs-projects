@@ -6,6 +6,7 @@ const translations = {
   en: {
     siteTitle: "StoryTime",
     storyList: "Story Collection",
+    storyListSubtitle: "Discover timeless tales that spark imagination and teach valuable lessons",
     backToStories: "Back to Stories",
     readStory: "Read Story",
     author: "Author",
@@ -17,6 +18,7 @@ const translations = {
   fr: {
     siteTitle: "L'Heure du Conte",
     storyList: "Collection d'Histoires",
+    storyListSubtitle: "Découvrez des contes intemporels qui stimulent l'imagination et enseignent de précieuses leçons",
     backToStories: "Retour aux Histoires",
     readStory: "Lire l'Histoire",
     author: "Auteur",
