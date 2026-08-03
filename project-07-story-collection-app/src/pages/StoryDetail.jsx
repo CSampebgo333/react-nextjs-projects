@@ -20,8 +20,7 @@ const getStoryGradient = (storySlug) => {
 const StoryDetail = () => {
 
     const { slug } = useParams();
-    console.log(slug);
-
+    
     const { language, translate } = useLanguage();
 
     const [story, setStory] = useState(null);
@@ -39,7 +38,6 @@ const StoryDetail = () => {
                                         .single();
                 if (error) throw error;
                 setStory(data);
-                console.log("Data Loaded: ", data);
             }
             catch (error) {
                 console.log("Failed Loading Data: ", error.message);
