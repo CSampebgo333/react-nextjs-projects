@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Sun, Moon } from "lucide-react";
 
 const ThemeToggle = () => {
   
@@ -27,12 +28,13 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setIsDark(!isDark)}
+      aria-label="Thoggle Theme"
       className={
         "fixed bottom-7 right-7 z-50 bg-white dark:bg-gray-800 rounded-full p-3" + 
         " text-gray-700 dark:text-gray-200 hover:shadow-lg transition-all"
       }
     >
-      Toggle Theme
+      {isDark? <Sun className="w-5 h-5"/> : <Moon className="w-5 h-5"/>}
     </button>
   );
 };
