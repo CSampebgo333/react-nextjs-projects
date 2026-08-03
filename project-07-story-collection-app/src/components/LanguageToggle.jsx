@@ -9,7 +9,7 @@ const LanguageToggle = () => {
 
     const class1 = " bg-purple-500 text-white shadow-md";
 
-    const class2 = " text-gray-600 hover:bg-blue-50";
+    const class2 = " text-gray-600 hover:bg-blue-50 hover:text-purple-500 transition-colors";
 
     return (
     <div className="flex items-center space-x-3">
