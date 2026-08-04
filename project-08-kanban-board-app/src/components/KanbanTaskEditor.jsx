@@ -24,7 +24,8 @@ const KanbanTaskEditor = ({
 
   return (
     <div className="space-y-2">
-      <textarea 
+      <textarea
+        id={`${taskId}`}
         ref={textAreaRef}
         value={tempTaskContent}
         onChange={(change) => setTempTaskContent(change.target.value)}
@@ -43,6 +44,7 @@ const KanbanTaskEditor = ({
         </p>
         <Button 
           onClick={() => deleteTask(taskId)}
+          onMouseDown={(e) => e.preventDefault()}
           className={
             "p-1 h-5 w-5 rounded-full text-red-600 hover:text-red-700 hover:bg-pink-100" + 
             " dark:text-gray-300 dark:hover:text-red-400 dark:hover:bg-gray-600" +
