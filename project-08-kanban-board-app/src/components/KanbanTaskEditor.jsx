@@ -2,7 +2,7 @@ import Button from "./ui/Button";
 
 const KanbanTaskEditor = (
 
-  { tempTaskContent, setTempTaskContent, handleTaskUpdate, handleTaskEditCancel }
+  { tempTaskContent, setTempTaskContent, handleTaskUpdate, handleTaskEditCancel, textAreaRef }
 
 ) => {
 
@@ -17,6 +17,7 @@ const KanbanTaskEditor = (
   return (
     <div className="space-y-2">
       <textarea 
+        ref={textAreaRef}
         value={tempTaskContent}
         onChange={(change) => setTempTaskContent(change.target.value)}
         autoFocus

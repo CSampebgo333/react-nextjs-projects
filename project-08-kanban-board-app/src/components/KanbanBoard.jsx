@@ -28,7 +28,7 @@ const KanbanBoard = () => {
       tasks: [
         {
           id: "task-3",
-          content: "Implement user authentication",
+          content: "Implement user authentication. 'This is mock data used to design the focus mode fonction of a task in edit mode'Got it?",
           createdAt: new Date("2025-07-25T00:00:00"),
         },
       ],

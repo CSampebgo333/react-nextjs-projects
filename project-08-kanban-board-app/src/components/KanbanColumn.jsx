@@ -27,6 +27,7 @@ const KanbanColumn = ({ column, deleteColumn, addTask, updateColumnTitle, update
     }
   };
 
+
   return (
     <div className={
       "shrink-0 w-80"
