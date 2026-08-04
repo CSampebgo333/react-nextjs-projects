@@ -96,7 +96,7 @@ const KanbanColumn = ({ column, deleteColumn, addTask, updateColumnTitle, update
           {(provided, snapshot) => (
             <div
               ref={provided.innerRef}
-              {...provided.droppableProps} 
+              {...provided.droppableProps}
               className={
                 `p-3 overflow-y-auto min-h-0 flex-1 ${snapshot.isDraggingOver? 
                   "bg-blue-50 dark:bg-blue-500" : "" }`}             

@@ -101,9 +101,43 @@ const KanbanBoard = () => {
     })))
   }
 
-  const handleDragEnd = (reseult) => {
+  const handleDragEnd = (result) => {
 
+    const { destination, source } = result;
+    if(!destination) return;
+    if(destination.droppableId === source.droppableId && destination.index === source.index) return;
+
+    const sourceColumn = columns.find((col) => col.id === source.droppableId);
+    const destinationColumn = columns.find((col) => col.id === destination.droppableId);
+    if (!sourceColumn || !destination) return;
+
+    const sourceTasks = [...sourceColumn.tasks];
+    const [movedTask] = sourceTasks.splice(source.index, 1);
+    
+    if (sourceColumn === destinationColumn) {
+
+      sourceTasks.splice(destination.index, 0, movedTask)
+      setColumns(columns.map((col) => 
+        col.id === source.droppableId? {...col, tasks: sourceTasks} : col,
+      ));
+
+    } else {
+
+      const destinationTasks = [...destinationColumn.tasks];
+      destinationTasks.splice(destination.index, 0, movedTask);
+
+      setColumns(columns.map((col) => {
+        if (col.id === destination.droppableId) {
+          return {...col, tasks: destinationTasks};
+        } else if (col.id === source.droppableId){
+          return {...col, tasks: sourceTasks};
+        } else {
+          return col;
+        }
+      }))
+    }
   }
+  
 
   return (
     <div className={
