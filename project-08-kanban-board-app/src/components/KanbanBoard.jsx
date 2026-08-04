@@ -5,15 +5,6 @@ import { Plus } from "lucide-react";
 
 const KanbanBoard = () => {
 
-  const addColumn = () => {
-    setColums(
-      [
-        ...columns,
-        {id: `column-${crypto.randomUUID()}`, title: "New Column", tasks: []}
-      ]
-    )
-  }
-
   const defaultColumns = [
     {
       id: "todo",
@@ -55,7 +46,33 @@ const KanbanBoard = () => {
     },
   ];
 
-  const [columns, setColums] = useState(defaultColumns);
+  const [columns, setColumns] = useState(defaultColumns);
+
+  const addColumn = () => {
+    setColumns(
+      [
+        ...columns,
+        {id: `column-${crypto.randomUUID()}`, title: "New Column", tasks: []}
+      ]
+    )
+  };
+
+  const deleteColumn = (columnId) => {
+    setColumns(columns.filter((column) => column.id !== columnId));
+  };
+
+  const addTask = (columId) => {
+    setTasks(
+      [
+        ...tasks,
+        {
+          id: `task-${crypto.randomUUID}`,
+          content: "New task",
+          createdAt: new Date.now().toLocaleString(),
+        }
+      ]
+    )
+  }
 
   return (
     <div className={
@@ -69,6 +86,7 @@ const KanbanBoard = () => {
           <KanbanColumn 
             key={column.id}
             column={column}
+            deleteColumn={deleteColumn}
           />
         ))}
 

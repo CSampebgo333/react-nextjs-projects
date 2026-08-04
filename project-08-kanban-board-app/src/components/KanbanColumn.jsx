@@ -1,8 +1,9 @@
 import KanbanTask from "./KanbanTask";
 import Button from "./ui/Button";
 import { useState } from "react";
+import { Plus, Trash2 } from "lucide-react";
 
-const KanbanColumn = ({ column }) => {
+const KanbanColumn = ({ column, deleteColumn, addTask }) => {
 
   const [isEditingTitle, setIsEditingTitle] = useState(false);
 
@@ -32,6 +33,31 @@ const KanbanColumn = ({ column }) => {
                 {column.title}
               </h3>
             )}
+            <Button
+              onClick={() => deleteColumn(column.id)} 
+              className={
+                "h-12 w-12 p-0 text-red-600 hover:text-red-700 hover:bg-pink-100" + 
+                " dark:text-gray-300 dark:hover:text-red-400 dark:hover:bg-gray-600 rounded-full"
+              }
+            >
+              <Trash2 className="w-5 h-5"/>
+            </Button>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-gray-500 dark:text-gray-400">
+              {column.tasks.length} {" "}
+              {column.tasks.length === 1 ? "task" : "tasks"}
+            </span>
+            <Button
+              onClick={() => addTask(column.id)}
+              className={
+                "h-7 px-2 rounded-full text-blue-600 hover:bg-blue-50" + 
+                " dark:text-blue-400 dark:hover:bg-gray-600"
+              }
+            >
+              <Plus className="w-3 h-3 mr-1"/>
+              <p className="text-sm font-normal">Add</p>
+            </Button>
           </div>
         </div>
         <div className="p-3 overflow-y-auto min-h-0 flex-1">
