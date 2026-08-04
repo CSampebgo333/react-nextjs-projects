@@ -2,6 +2,7 @@ import { useState } from "react";
 import KanbanColumn from "./KanbanColumn";
 import Button from "./ui/Button";
 import { Plus } from "lucide-react";
+import { DragDropContext } from "@hello-pangea/dnd";
 
 const KanbanBoard = () => {
 
@@ -100,44 +101,49 @@ const KanbanBoard = () => {
     })))
   }
 
+  const handleDragEnd = (reseult) => {
+
+  }
 
   return (
     <div className={
       "min-h-screen w-full bg-gray-100 dark:bg-gray-900" + 
       " transition-colors"
     }>
-      <div className={
-        "flex gap-5 overflow-x-auto pb-7 px-7 w-full mt-3"
-      }>
-        {columns.map((column) => (
-          <KanbanColumn 
-            key={column.id}
-            column={column}
-            deleteColumn={deleteColumn}
-            addTask={addTask}
-            updateColumnTitle={updateColumnTitle}
-            updateTask={updateTask}
-            deleteTask={deleteTask}
-          />
-        ))}
-
-        <div className="shrink-0">
-          <Button
-            onClick={addColumn}
-            className={
-              "h-12 rounded-md px-5 bg-white/50 dark:bg-gray-700 dark:text-white " + 
-              " hover:bg-white/80 dark:hover:bg-gray-600 border-dashed" + 
-              " border-2 border-gray-200 dark:border-gray-500" +
-              " hover:border-gray-400 transition-all duration-300"
-            }
-          >
-            <Plus 
-              className="w-5 h-5 mr-2"
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <div className={
+          "flex gap-5 overflow-x-auto pb-7 px-7 w-full mt-3"
+        }>
+          {columns.map((column) => (
+            <KanbanColumn 
+              key={column.id}
+              column={column}
+              deleteColumn={deleteColumn}
+              addTask={addTask}
+              updateColumnTitle={updateColumnTitle}
+              updateTask={updateTask}
+              deleteTask={deleteTask}
             />
-            Add Column
-          </Button>
+          ))}
+
+          <div className="shrink-0">
+            <Button
+              onClick={addColumn}
+              className={
+                "h-12 rounded-md px-5 bg-white/50 dark:bg-gray-700 dark:text-white " + 
+                " hover:bg-white/80 dark:hover:bg-gray-600 border-dashed" + 
+                " border-2 border-gray-200 dark:border-gray-500" +
+                " hover:border-gray-400 transition-all duration-300"
+              }
+            >
+              <Plus 
+                className="w-5 h-5 mr-2"
+              />
+              Add Column
+            </Button>
+          </div>
         </div>
-      </div>
+      </DragDropContext>
     </div>
   );
 };
