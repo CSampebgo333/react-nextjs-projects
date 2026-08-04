@@ -12,10 +12,10 @@ const KanbanColumn = ({ column }) => {
     }>
       <div className={
          "h-[85vh] overflow-hidden bg-white dark:bg-gray-800 shadow-sm rounded-lg" + 
-        " border border-gray-200 dark:border-gray-700 flex flex-col transition-colors"
+        " border border-gray-300 dark:border-gray-700 flex flex-col transition-colors"
       }>
         <div className={
-          "px-5 py-2 border-b border-gray-100 dark:border-gray-700" + 
+          "px-5 py-2 border-b border-gray-200 dark:border-gray-700" + 
           " bg-gray-50/50 dark:bg-gray-700"
         }>
           <div className="flex items-center justify-between mb-2">
