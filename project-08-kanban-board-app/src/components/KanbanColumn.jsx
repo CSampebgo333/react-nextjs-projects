@@ -3,7 +3,7 @@ import Button from "./ui/Button";
 import { useState } from "react";
 import { Plus, Trash2 } from "lucide-react";
 
-const KanbanColumn = ({ column, deleteColumn, addTask, updateColumnTitle }) => {
+const KanbanColumn = ({ column, deleteColumn, addTask, updateColumnTitle, updateTask }) => {
 
   const [isEditingTitle, setIsEditingTitle] = useState(false);
 
@@ -97,6 +97,7 @@ const KanbanColumn = ({ column, deleteColumn, addTask, updateColumnTitle }) => {
                 key={task.id}
                 task={task}
                 index={index}
+                updateTask={updateTask}
               />
             ))}
           </div>
