@@ -2,7 +2,7 @@ import KanbanTaskViewer from "./KanbanTaskViewer";
 import KanbanTaskEditor from "./KanbanTaskEditor";
 import { useState, useRef, useEffect } from "react";
 
-const KanbanTask = ({ task, index, updateTask }) => {
+const KanbanTask = ({ task, index, updateTask, deleteTask }) => {
 
   const [isEditingTask, setIsEditingTask] = useState(false);
 
@@ -36,8 +36,8 @@ const KanbanTask = ({ task, index, updateTask }) => {
       "group bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-600" + 
       " shadow-sm hover:shadow-md transition-all duration-300 rounded-lg p-2"
     }>
-      <div>
-        {isEditingTask? (
+      <div className="relative">
+        {isEditingTask ? (
           <KanbanTaskEditor 
             taskId={task.id}
             handleTaskUpdate={handleTaskUpdate}
@@ -45,12 +45,14 @@ const KanbanTask = ({ task, index, updateTask }) => {
             tempTaskContent={tempTaskContent}
             setTempTaskContent={setTempTaskContent}
             textAreaRef={textAreaRef}
+            deleteTask={deleteTask}
           />
         ) : (
           <KanbanTaskViewer 
             content={task.content} 
             createdAt={task.createdAt} 
             onEdit={() => setIsEditingTask(true)}
+            deleteTask={() => deleteTask(task.id)}
           />
         )}
       </div>

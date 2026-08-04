@@ -90,6 +90,17 @@ const KanbanBoard = () => {
       )
     })))
   }
+
+
+  const deleteTask = (taskId) => {
+    setColumns(columns.map((col) => ({
+      ...col,
+      tasks: col.tasks.filter((task) =>
+        task.id !== taskId),
+    })))
+  }
+
+
   return (
     <div className={
       "min-h-screen w-full bg-gray-100 dark:bg-gray-900" + 
@@ -106,6 +117,7 @@ const KanbanBoard = () => {
             addTask={addTask}
             updateColumnTitle={updateColumnTitle}
             updateTask={updateTask}
+            deleteTask={deleteTask}
           />
         ))}
 
