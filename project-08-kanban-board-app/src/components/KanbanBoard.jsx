@@ -61,18 +61,26 @@ const KanbanBoard = () => {
     setColumns(columns.filter((column) => column.id !== columnId));
   };
 
-  const addTask = (columId) => {
-    setTasks(
-      [
-        ...tasks,
-        {
-          id: `task-${crypto.randomUUID}`,
-          content: "New task",
-          createdAt: new Date.now().toLocaleString(),
-        }
-      ]
-    )
+  const addTask = (columnId) => {
+
+    const newTask = {
+      id: `task-${Date.now()}`,
+      content: "New Task",
+      createdAt: new Date(),
+    }
+
+    setColumns(columns.map((col) => 
+      col.id === columnId? 
+      {...col, tasks: [...col.tasks, newTask]} : col
+    ))
+
   }
+
+  const updateColumnTitle = (columnId, newTitle) => {
+    setColumns(columns.map((col) => 
+      col.id === columnId? {...col, title: newTitle} : col
+    ));
+  };
 
   return (
     <div className={
@@ -87,6 +95,8 @@ const KanbanBoard = () => {
             key={column.id}
             column={column}
             deleteColumn={deleteColumn}
+            addTask={addTask}
+            updateColumnTitle={updateColumnTitle}
           />
         ))}
 
