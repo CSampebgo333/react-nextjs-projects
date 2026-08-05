@@ -1,8 +1,19 @@
+import HelpStatus from "./components/HelpStatus";
+import HelpForm from "./components/HelpForm";
+
 const App = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-3xl text-blue-400 font-semibold">React is Worth Learning in 2026.</h1>
-    </div>
+   <div 
+    style={{
+      fontFamily: "sans-serif",
+      maxWidth: "600px",
+      margin: "2rem auto" 
+    }}
+   >
+    <h1>Need Help?</h1>
+    <HelpStatus />
+    <HelpForm />
+   </div>
   );
 }
 
