@@ -13,6 +13,7 @@ A collection of small React and Next.js practice projects, each exploring differ
 | [project-05-card-flip-game](./project-05-card-flip-game/README.md) | A memory-matching card flip game with adjustable grid sizes, move/match tracking, and sound effects. |
 | [project-06-weather-app](./project-06-weather-app/README.md) | A weather app with city search, current conditions, hourly forecast, and a 6-day outlook, powered by the Open-Meteo API. |
 | [project-07-story-collection-app](./project-07-story-collection-app/README.md) | A bilingual (EN/FR) children's story collection app with a story list and detail view, backed by Supabase. |
+| [project-08-kanban-board-app](./project-08-kanban-board-app/README.md) | A drag-and-drop Kanban board with editable columns/tasks, dark mode, and `localStorage` persistence. |
 
 Each project has its own README with setup instructions, project structure, and implementation notes.
 
@@ -23,6 +24,7 @@ Each project has its own README with setup instructions, project structure, and 
 - [Tailwind CSS v4](https://tailwindcss.com/) — utility-first styling, used from project-04 onward (projects 01–03 use plain CSS)
 - [React Router](https://reactrouter.com/) — client-side routing (project-07)
 - [Supabase](https://supabase.com/) — backend/database (project-07)
+- [@hello-pangea/dnd](https://github.com/hello-pangea/dnd) — drag-and-drop (project-08)
 - ESLint — linting across all projects
 
 Next.js projects may be added to this repo over time.
