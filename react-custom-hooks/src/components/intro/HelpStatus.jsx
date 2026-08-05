@@ -1,4 +1,4 @@
-import useNetworkStatus from "../hooks/useNetworkStatus";
+import useNetworkStatus from "../../hooks/useNetworkStatus";
 
 const HelpStatus = () => {
 

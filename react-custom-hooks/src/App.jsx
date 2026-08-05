@@ -1,19 +1,40 @@
-import HelpStatus from "./components/HelpStatus";
-import HelpForm from "./components/HelpForm";
+import useFormInput from "./hooks/useFormInput";
 
 const App = () => {
+
+  const name = useFormInput("");
+  const email = useFormInput("");
+
   return (
-   <div 
-    style={{
-      fontFamily: "sans-serif",
-      maxWidth: "600px",
-      margin: "2rem auto" 
-    }}
-   >
-    <h1>Need Help?</h1>
-    <HelpStatus />
-    <HelpForm />
-   </div>
+   <form>
+    <div 
+      style={{
+        fontFamily: "sans-serif",
+        maxWidth: "600px",
+        margin: "2rem auto" 
+      }}
+    >
+      <label>Name: </label>
+      <input 
+        type="text"
+        {...name} 
+      />
+    </div>
+    <div 
+      style={{
+        fontFamily: "sans-serif",
+        maxWidth: "600px",
+        margin: "2rem auto" 
+      }}
+    >
+      <label>Email: </label>
+      <input 
+        type="email"
+        {...email} 
+      />
+    </div>
+
+   </form>
   );
 }
 
