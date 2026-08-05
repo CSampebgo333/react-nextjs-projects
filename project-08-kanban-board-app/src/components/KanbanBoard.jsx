@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import KanbanColumn from "./KanbanColumn";
 import Button from "./ui/Button";
 import { Plus } from "lucide-react";
 import { DragDropContext } from "@hello-pangea/dnd";
+
 
 const KanbanBoard = () => {
 
@@ -47,8 +48,6 @@ const KanbanBoard = () => {
     },
   ];
 
-  const [columns, setColumns] = useState(defaultColumns);
-
   const addColumn = () => {
     setColumns(
       [
@@ -65,6 +64,7 @@ const KanbanBoard = () => {
   const addTask = (columnId) => {
 
     const newTask = {
+      // eslint-disable-next-line react-hooks/purity
       id: `task-${Date.now()}`,
       content: "New Task",
       createdAt: new Date(),
@@ -137,6 +137,27 @@ const KanbanBoard = () => {
       }))
     }
   }
+
+  const [columns, setColumns] = useState(() => {
+
+    const storedData = localStorage.getItem("clement-kanban-board-columns");
+
+    if (storedData) {
+      try {
+        const parsedData = JSON.parse(storedData);
+        return parsedData.map((col) => (
+          {...col, tasks: col.tasks.map((task) => ({...task, createdAt: new Date(task.createdAt)}))}
+        ))
+      } catch (error) {
+        console.log("Failed Parsing Columns:", error);
+      }
+    }
+    return defaultColumns;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("clement-kanban-board-columns", JSON.stringify(columns));
+  }, [columns])
 
 
   return (
