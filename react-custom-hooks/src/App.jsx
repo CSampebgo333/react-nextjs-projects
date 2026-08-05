@@ -1,12 +1,5 @@
-import useFormInput from "./hooks/useFormInput";
-
 const App = () => {
-
-  const name = useFormInput("");
-  const email = useFormInput("");
-
   return (
-   <form>
     <div 
       style={{
         fontFamily: "sans-serif",
@@ -14,28 +7,10 @@ const App = () => {
         margin: "2rem auto" 
       }}
     >
-      <label>Name: </label>
-      <input 
-        type="text"
-        {...name} 
-      />
+      <h1>React is Worth Learning in 2026</h1>
     </div>
-    <div 
-      style={{
-        fontFamily: "sans-serif",
-        maxWidth: "600px",
-        margin: "2rem auto" 
-      }}
-    >
-      <label>Email: </label>
-      <input 
-        type="email"
-        {...email} 
-      />
-    </div>
-
-   </form>
   );
 }
 
 export default App;
+
