@@ -98,7 +98,7 @@ const KanbanColumn = ({ column, deleteColumn, addTask, updateColumnTitle, update
               ref={provided.innerRef}
               {...provided.droppableProps}
               className={
-                `p-3 overflow-y-auto min-h-0 flex-1 ${snapshot.isDraggingOver? 
+                `p-3 overflow-y-auto thin-scrollbar min-h-0 flex-1 ${snapshot.isDraggingOver? 
                   "bg-blue-50 dark:bg-blue-500" : "" }`}             
             >
               <div className="space-y-3">

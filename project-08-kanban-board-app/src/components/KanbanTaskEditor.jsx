@@ -35,7 +35,7 @@ const KanbanTaskEditor = ({
         className={
           "w-full resize-none min-h-17.5 rounded-md border border-blue-200 text-sm px-3 py-2" + 
           " dark:border-blue-500 bg-white dark:bg-gray-800 dark:text-gray-100" + 
-          " focus:outline-none focus:ring-2 focus:ring-blue-400"
+          " focus:outline-none focus:ring-2 focus:ring-blue-400 thin-scrollbar"
         }
       />
       <div className="flex items-center justify-between">

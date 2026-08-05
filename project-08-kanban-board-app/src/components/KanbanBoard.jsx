@@ -137,16 +137,16 @@ const KanbanBoard = () => {
       }))
     }
   }
-  
+
 
   return (
     <div className={
       "min-h-screen w-full bg-gray-100 dark:bg-gray-900" + 
-      " transition-colors"
+      " transition-colors flex items-center "
     }>
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className={
-          "flex gap-5 overflow-x-auto pb-7 px-7 w-full mt-3"
+          "flex gap-5 overflow-x-auto pb-7 px-7 w-full mt-3 thin-scrollbar"
         }>
           {columns.map((column) => (
             <KanbanColumn 
