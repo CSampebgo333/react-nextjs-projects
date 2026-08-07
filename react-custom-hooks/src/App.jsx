@@ -1,3 +1,5 @@
+import Parent from "./components/Parent";
+
 const App = () => {
 
     return (
@@ -7,8 +9,8 @@ const App = () => {
                 fontFamily: "sans-serif",
             }}
         >
-            <h1>Higher Order Components</h1>
-            
+            <h1>React Performance Introduction</h1>
+            <Parent />
         </div>
     )
 }
