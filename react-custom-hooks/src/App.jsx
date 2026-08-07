@@ -4,7 +4,7 @@ const App = () => {
         <div 
             style={{
                 padding: "2rem",
-                fontFamily: "sans-serif"
+                fontFamily: "sans-serif",
             }}
         >
             <h1>Higher Order Components</h1>
