@@ -1,11 +1,15 @@
 import Child from "./Child";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 
 const Parent = () => {
 
-    const [parentCount, setParentCount] = useState(0);
+    const [count, setCount] = useState(0);
     const [childCount, setChildCount] = useState(0);
+
+    const handleClick = useCallback(() => {
+        console.log("Child Clicked")
+    }, [])
 
 
     return (
@@ -15,24 +19,11 @@ const Parent = () => {
                 border: "2px solid blue"
             }}
         >
-            <h2>Parent Component</h2>
-            <p>Parent Count: {parentCount}</p>
-            <button
-                onClick={() => setParentCount((prev) => prev + 1)}
-            >
-                Increment Parent Count
+            <h2>Parent Count: {count}</h2>
+            <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+                Increment ParentCount
             </button>
-
-            <p style={{marginTop: "1rem"}}>Child Count: {childCount}</p>
-            <button
-                onClick={() => setChildCount((prev) => prev + 1)}
-            >
-                Increment Child Count
-            </button>
-
-            <Child name={"Alice"} count={childCount}/> 
-            <Child name={"Bob"} count={childCount}/> 
-            <Child name={"Charlie"} count={childCount}/> 
+            <Child name={"Memoized Child"} clickFunction={handleClick}/>
         </div>
     );
 }
