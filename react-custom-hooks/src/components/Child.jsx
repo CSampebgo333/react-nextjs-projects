@@ -1,3 +1,5 @@
+import React from "react";
+
 const Child = ({ name, count }) => {
     console.log(`Rendering Child ${name}`);
 
@@ -15,4 +17,11 @@ const Child = ({ name, count }) => {
     );
 }
 
-export default Child;
+function areEqual(prevProps, nextProps) {
+    if (nextProps.name === "Alice") return false;
+        return (
+        nextProps.name === prevProps.name && nextProps.count === prevProps.count
+    );
+}
+
+export default React.memo(Child, areEqual);
