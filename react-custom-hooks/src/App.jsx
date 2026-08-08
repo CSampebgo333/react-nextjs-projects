@@ -1,31 +1,18 @@
-import { lazy, Suspense, useState } from "react";
-const HeavyComponent = lazy(() => import("./components/HeavyComponent"))
+import TodoList from "./components/TodoList";
 
 const App = () => {
-
-    const [show, setShow] = useState(false);
-
     return (
         <div
             style={{
-                fontFamily: "sans-serif",
                 padding: "2rem",
+                fontFamily: "sans-serif",
             }}
         >
-            <h1>Heavy Component Demo</h1>
-            <button
-                onClick={() => setShow(!show)}
-            >
-                {show? "Hide" : "Show"} Heavy Component
-            </button>
-            {
-                show &&
-                <Suspense fallback={<div>Loading component...</div>}>
-                    <HeavyComponent />
-                </Suspense>
-            }
+            <h1>React Avoids Unecessary Re-rendering.</h1>
+            <TodoList />
+            <p>Open the console to see which TodoItem re-render onToggle.</p>
         </div>
-    );
+    )
 }
 
 export default App;
