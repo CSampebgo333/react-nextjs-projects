@@ -1,0 +1,21 @@
+/* HeavyComponent.css (big CSS example) */
+.heavy-container {
+  background-color: #f0f0f0;
+  border: 2px solid #333;
+  padding: 20px;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.heavy-container h2 {
+  color: #0077cc;
+  font-size: 2rem;
+}
+
+.heavy-container p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* imagine hundreds of more CSS rules here for styles, animations, etc. */

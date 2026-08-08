@@ -1,8 +1,9 @@
-import { List } from "react-virtualized";
-import "react-virtualized/styles.css";
-import VirtualizedList from "./components/VirtualizedList";
+import { lazy, Suspense, useState } from "react";
+const HeavyComponent = lazy(() => import("./components/HeavyComponent"))
 
 const App = () => {
+
+    const [show, setShow] = useState(false);
 
     return (
         <div
@@ -11,8 +12,18 @@ const App = () => {
                 padding: "2rem",
             }}
         >
-            <h1>React Virtualization</h1>
-            <VirtualizedList />
+            <h1>Heavy Component Demo</h1>
+            <button
+                onClick={() => setShow(!show)}
+            >
+                {show? "Hide" : "Show"} Heavy Component
+            </button>
+            {
+                show &&
+                <Suspense fallback={<div>Loading component...</div>}>
+                    <HeavyComponent />
+                </Suspense>
+            }
         </div>
     );
 }
